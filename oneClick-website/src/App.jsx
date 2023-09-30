@@ -7,19 +7,19 @@ import Splash from "./pages/Splash"
 import { useEffect, useState } from "react"
 
 function App() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
-      setLoading(false)
-    }, 8000)
+      setLoading(true)
+    }, 5500)
   }, []);
 
   return (
     <>
 
       {
-        loading ? <h1>hello</h1> :
+        loading ? <Splash/> :
         (<>
           <Navbar />
           <Routes>
