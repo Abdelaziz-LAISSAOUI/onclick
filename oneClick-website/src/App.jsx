@@ -7,28 +7,32 @@ import Splash from "./pages/Splash"
 import { useEffect, useState } from "react"
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
+  const [toggoleNav, setToggoleNav] = useState(false)
+
 
   useEffect(() => {
     setTimeout(() => {
-      setLoading(true)
-    }, 5500)
+      setLoading(false)
+    }, 4000)
   }, []);
 
   return (
     <>
 
       {
-        loading ? <Splash/> :
-        (<>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/our_work" element={<OurWork />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* <Route path="*" element /> */}
-          </Routes>
-        </>)
+        loading ? <Splash /> :
+          (<>
+            <Navbar toggole={toggoleNav} setToggole={setToggoleNav} />
+            <div className="bg-slate-200" onClick={() => { setToggoleNav(false) }}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/our_work" element={<OurWork />} />
+                <Route path="/contact" element={<Contact />} />
+                {/* <Route path="*" element /> */}
+              </Routes>
+            </div>
+          </>)
       }
     </>
   );

@@ -35,7 +35,6 @@ function Splash() {
 
 
 
-
       {/* <div>
         <svg id="all" className="scale-75" width="476" height="120" viewBox="0 0 476 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="CLICK">
