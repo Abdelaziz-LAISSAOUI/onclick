@@ -6,13 +6,13 @@ import agency from "../assets/agency.svg"
 
 function Splash() {
   return (
-    <div className="spalsh  flex flex-col justify-center items-center h-screen ">
+    <div className="spalsh bg-[#081A1E] flex flex-col justify-center items-center h-screen duration-300">
       <div>
         <div className="flex scale-50 items-end	justify-center">
           <div id="cl">
             <img src={cl} alt="" />
           </div>
-          <img src={one} id="oneLogo" alt="" />
+          <img src={one} id="oneLogo" alt="" className="w-11"/>
           <div id="ck">
             <img src={ck} alt="" />
           </div>

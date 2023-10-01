@@ -7,7 +7,7 @@ import Splash from "./pages/Splash"
 import { useEffect, useState } from "react"
 
 function App() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [toggoleNav, setToggoleNav] = useState(false)
 
 
