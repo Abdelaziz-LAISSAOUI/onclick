@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    font-family: 'Anybody', cursive;
+    font-family: 'Montserrat', sans-serif;
+}
+
 /* #all{
     animation-name: ascend;
     animation-duration: 1.2s;

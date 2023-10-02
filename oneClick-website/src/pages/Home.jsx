@@ -35,7 +35,7 @@ function Home() {
 
   return (
     <>
-      <section className="p-3 h-screen hero duration-300">
+      <section id="hero" className="p-3 h-screen hero duration-300">
         <img src={oneLogo} alt="one click logo" className="mx-auto mt-28" />
         <h1 className="text-center text-base mt-10 text-white font-bold">
           DIVE INTO THE DEPTHS OF <span className="text-[#50D3AE]" >DIGITAL</span> BUSINESS
@@ -47,7 +47,8 @@ function Home() {
           <Button content={"Get Started"} />
         </div>
       </section>
-      <section className="greenBg p-3 h-screen relative overflow-hidden ">
+      <div className="greenBg">
+      <section className=" p-3 h-screen relative overflow-hidden ">
         <h2 className="text-center mt-10 text-white font-bold">
           ABOUT <span className="text-[#50D3AE]">ONE CLICK</span>
         </h2>
@@ -56,9 +57,9 @@ function Home() {
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque tincidunt scelerisque libero. Suspendisse sagittis ultrices augue. Nulla pulvinar eleifend sem. Aliquam erat volutpat. Aenean placerat. Quisque tincidunt scelerisque libero. In dapibus augue non sapien. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Nulla est. Nullam sit amet magna in magna gravida vehicula. In enim a arcu imperdiet malesuada. Phasellus faucibus molestie nisl. Curabitur
         </p>
         <img src={dots} className="w-32 absolute -top-14 left-3" alt="" />
-        <img src={dots} className="w-32 absolute right-3 bottom-3" alt="" />
+        <img src={dots} className="w-32 absolute right-3 -bottom-8" alt="" />
       </section>
-      <section className="greenBg p-3 h-screen relative ">
+      <section className=" p-3 h-screen relative overflow-hidden">
         <h2 className="text-center m-10 text-white font-bold">OUR <span className="text-[#50D3AE]">SERVICES</span></h2>
         <motion.div ref={carouselRef} className="overflow-hidden  cursor-grab ">
           <motion.div drag='x' dragConstraints={{ right: 0, left: -width }} className="flex relative h-[450px] ">
@@ -89,9 +90,9 @@ function Home() {
           </motion.div>
         </motion.div>
         <img src={dots} className="w-32 absolute -top-16 left-8 " alt="" />
-        <img src={dots} className="w-32 absolute -bottom-12 -left-12" alt="" />
+        <img src={dots} className="w-32 absolute -bottom-12 -right-12" alt="" />
       </section>
-      <section className="greenBg p-3 h-screen relative overflow-hidden ">
+      <section className=" p-3 h-screen relative overflow-hidden ">
         <h2 className="text-center m-10 text-white font-bold">ARE YOU READY TO GROW YOUR BUSINESS</h2>
         <p className="text-center text-[#3EB397] font-bold">LET'S KEEP IN TOUCH</p>
         <div className="mt-12 grid grid-cols-2 gap-y-16 justify-items-center">
@@ -104,6 +105,7 @@ function Home() {
         <img src={dots} className="w-32 absolute bottom-24 -left-14" alt="" />
         <img src={dots} className="w-32 absolute bottom-6 -right-20" alt="" />
       </section>
+      </div>
     </>
   )
 }
