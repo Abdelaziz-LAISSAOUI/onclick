@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useLocation } from "react-router-dom"
 import Home from "./pages/Home"
 import OurWork from "./pages/OurWork"
 import Contact from "./pages/Contact"
@@ -9,13 +9,19 @@ import { useEffect, useState } from "react"
 function App() {
   const [loading, setLoading] = useState(true)
   const [toggoleNav, setToggoleNav] = useState(false)
+  let location = useLocation();
 
+  useEffect(() => {
+    setToggoleNav(false)
+  }, [location]);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
     }, 4000)
   }, []);
+
+
 
   return (
     <>
