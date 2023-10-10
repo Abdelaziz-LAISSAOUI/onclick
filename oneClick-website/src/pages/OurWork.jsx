@@ -1,5 +1,4 @@
 import ProjectCard from "../compononent/ProjectCard"
-import { useState } from "react"
 // import { motion } from "framer-motion"
 import image1 from "../assets/services/devlopment.jpeg"
 import image2 from "../assets/services/editing.jpeg"
@@ -7,7 +6,6 @@ import image3 from "../assets/services/photography.jpeg"
 import dots from "../assets/dots.svg"
 
 function OurWork() {
-  const [selectedId, setSelectedId] = useState(null)
   return (
     <>
       <div className="hero h-[50vh] text-center text-white p-3 ">

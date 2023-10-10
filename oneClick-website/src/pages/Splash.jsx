@@ -18,8 +18,7 @@ function Splash() {
           </div>
         </div>
       </div>
-
-      <img id="agency" className="scale-50 -m-5" src={agency} alt="" />
+      <img id="agency" className="disapper scale-50 -m-5" src={agency} alt="" />
 
 
 

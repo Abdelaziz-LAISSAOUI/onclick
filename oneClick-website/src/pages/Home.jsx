@@ -19,7 +19,7 @@ import image6 from "../assets/services/voiceAct.jpeg"
 import image7 from "../assets/services/socialMang.jpeg"
 import image8 from "../assets/services/marketing2.jpg"
 
-
+//TODO: fi tal3a akhdm b previous
 
 function Home() {
 
@@ -37,23 +37,27 @@ function Home() {
   //-----------------------------
 
 
-  const handleClick = (section) => {
+  const handleClick = (section, e) => {
     const i = array.indexOf(section) + 1
-    const nextSection = array[i].current
-
-    if (nextSection) {
+    let nextSection;
+    
+    if (i !== 4 && section.current.clientHeight * 0.75 < e.clientY) {
+      nextSection = array[i].current
+      nextSection.style.transform = `translateY(${-100 * i}%)`;
       nextSection.firstChild.style.animationName = 'appear'
       nextSection.firstChild.style.animationDuration = '2s'
       nextSection.firstChild.style.animationFillMode = 'forwards'
       nextSection.firstChild.style.animationDelay = '1s'
-      nextSection.style.transform = `translateY(${-100 * i}%)`;
+    } else if (i !== 1 && section.current.clientHeight * 0.25 > e.clientY) {
+      section.current.style.transform = `translateY(${-100 * (i - 1) + 100}%)`;
     }
+
   };
 
 
   return (
     <div className="h-screen overflow-hidden">
-      <section onClick={() => { handleClick(hero) }} id="hero" ref={hero} className="p-3 h-screen hero duration-300">
+      <section onClick={(e) => { handleClick(hero, e) }} id="hero" ref={hero} className="p-3 h-screen hero duration-300">
         <div className="home" >
           <img src={oneLogo} alt="one click logo" className="mx-auto mt-28" />
           <h1 className="text-center mt-10 text-white font-bold">
@@ -67,8 +71,7 @@ function Home() {
           </div>
         </div>
       </section>
-
-      <section onClick={() => { handleClick(about) }} ref={about} className="z-10 greenBg p-3 h-screen relative overflow-hidden duration-1000 ease-out ">
+      <section onClick={(e) => { handleClick(about, e) }} ref={about} className="z-10 greenBg p-3 h-screen relative overflow-hidden duration-1000 ease-out ">
         <div className="container opacity-0">
           <h2 className="text-center mt-10 text-white font-bold">
             ABOUT <span className="text-[#50D3AE]">ONE CLICK</span>
@@ -81,7 +84,7 @@ function Home() {
           <img src={dots} className="w-32 absolute right-3 -bottom-8" alt="" />
         </div>
       </section>
-      <section onClick={() => { handleClick(services) }} ref={services} className="z-20 greenBg p-3 h-screen relative overflow-hidden duration-1000 ease-out">
+      <section onClick={(e) => { handleClick(services, e) }} ref={services} className="z-20 greenBg p-3 h-screen relative overflow-hidden duration-1000 ease-out">
         <div className="container opacity-0">
           <h2 className="text-center m-10 text-white font-bold">OUR <span className="text-[#50D3AE]">SERVICES</span></h2>
           <motion.div ref={carouselRef} className="overflow-hidden  cursor-grab ">
@@ -116,7 +119,7 @@ function Home() {
           <img src={dots} className="w-32 absolute -bottom-12 -right-12" alt="" />
         </div>
       </section>
-      <section ref={keepInTouch} className="anime z-30 greenBg p-3 h-screen relative overflow-hidden duration-1000 ease-out">
+      <section ref={keepInTouch} onClick={(e) => { handleClick(keepInTouch, e) }} className="anime z-30 greenBg p-3 h-screen relative overflow-hidden duration-1000 ease-out">
         <div className="container opacity-0">
           <h2 className="text-center m-10 text-white font-bold">ARE YOU READY TO GROW YOUR BUSINESS</h2>
           <p className="text-center text-[#3EB397] font-bold">LET&apos;S KEEP IN TOUCH</p>

@@ -4,18 +4,21 @@ import mail from "../assets/contactInfo/mail.svg"
 import phone from "../assets/contactInfo/phone.svg"
 import { useState, useRef, useEffect } from "react"
 import emailjs from '@emailjs/browser';
+import { toast, ToastContainer  } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
+
 
 
 function Contact() {
   const [email, setEmail] = useState('')
   const [invalidemail, setInvalidemail] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef();
 
   useEffect(() => {
 
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-
-    if (email === ''){
+    if (email === '') {
       setInvalidemail(false)
       return;
     }
@@ -33,14 +36,24 @@ function Contact() {
     if (email === '' || invalidemail)
       return;
 
+    const loading = toast.loading('pending ....')
+    setIsSubmitting(true)
+
     emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, formRef.current, import.meta.env.VITE_PUBLIC_KEY)
-      .then((result) => {
+      .then(() => {
         e.target.reset()
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
+        toast.success("Email sent succesfully!")
+      }, () => {
+        toast.error("Error !")
+      })
+      .finally(() => {
+        toast.dismiss(loading)
+        setIsSubmitting(false);
       });
   }
+
+
+
 
   return (
     <>
@@ -87,10 +100,14 @@ function Contact() {
               required
               name="message">
             </textarea>
-            <input className="w-full mt-4 py-4 text-center bg-white text-[#0A1A2F] font-semibold " type="submit" value="Send Message" />
+            <input className="w-full mt-4 py-4 text-center bg-white text-[#0A1A2F] font-semibold "
+              type="submit"
+              value={isSubmitting ? 'Sending...' : "Send Message"} 
+              disabled={isSubmitting}/>
           </form>
         </div>
       </div>
+      <ToastContainer />
     </>
   )
 }

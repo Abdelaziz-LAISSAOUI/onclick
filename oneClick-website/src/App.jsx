@@ -11,9 +11,6 @@ function App() {
   const [toggoleNav, setToggoleNav] = useState(false)
   let location = useLocation();
 
-  useEffect(() => {
-    setToggoleNav(false)
-  }, [location]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,6 +18,9 @@ function App() {
     }, 4000)
   }, []);
 
+  useEffect(() => {
+    setToggoleNav(false)
+  }, [location]);
 
 
   return (
@@ -29,13 +29,15 @@ function App() {
       {
         loading ? <Splash /> :
           (<>
-            <Navbar toggole={toggoleNav} setToggole={setToggoleNav} />
+            <Navbar toggole={toggoleNav} setToggole={setToggoleNav} location={location.pathname} />
             <div className="bg-slate-200" onClick={() => { setToggoleNav(false) }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/our_work" element={<OurWork />} />
                 <Route path="/contact" element={<Contact />} />
-                {/* <Route path="*" element /> */}
+                {/* TODO: add 404 element 
+                <Route path="*" element /> 
+                */}
               </Routes>
             </div>
           </>)

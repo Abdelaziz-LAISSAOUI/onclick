@@ -101,7 +101,7 @@
 }
 
 
-#agency{
+#agency {
     opacity: 0;
     animation-name: appear;
     animation-duration: 1s;
@@ -137,6 +137,7 @@
     }
 }
 
+
 @keyframes toRight {
     to {
         transform: translateX(101%);
@@ -163,10 +164,11 @@
     background-blend-mode: hard-light, normal;
 }
 
-.home{
+.home {
     opacity: 0;
     animation-name: appear;
     animation-duration: 1s;
     animation-delay: 500ms;
     animation-fill-mode: forwards;
 }
+

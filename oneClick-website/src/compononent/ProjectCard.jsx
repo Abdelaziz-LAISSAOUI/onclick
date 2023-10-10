@@ -1,12 +1,10 @@
 import { useState } from "react"
 
-
 function ProjectCard({ image, name, description }) {
 
   const intialshow = (description.length > 190)
   const [show, setShow] = useState(intialshow)
-
-
+  
   return (
     <div className="bg-white pt-2 px-2 mt-6 ">
       <img className="h-auto block mx-auto" src={image} alt="" />
